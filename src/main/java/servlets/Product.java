@@ -25,24 +25,6 @@ public class Product extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter writer = response.getWriter()) {
-            writer.write("<!DOCTYPE html>" +
-                    "<html>" +
-                    "<head>" +
-                    "<meta charset=\"UTF-8\">" +
-                    "<title>Product</title>" +
-                    "</head>" +
-                    "<body>" +
-                    "<h1 align='center'>PRODUCT</h1>" +
-                    "<div align='center'>" +
-                    "<a href='cart'>Корзина</a><br>" +
-                    "<a href='catalog'>Каталог</a><br>" +
-                    "<a href='main'>Главная</a><br>" +
-                    "<a href='order'>Заявка</a><br>" +
-                    "</div>" +
-                    "</body>" +
-                    "</html>");
-        }
+        request.getRequestDispatcher("WEB-INF/views/product.jsp").forward(request, response);
     }
 }
