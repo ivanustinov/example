@@ -24,24 +24,6 @@ public class Main extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter writer = response.getWriter()) {
-            writer.write("<!DOCTYPE html>" +
-                    "<html>" +
-                    "<head>" +
-                    "<meta charset=\"UTF-8\">" +
-                    "<title>Main</title>" +
-                    "</head>" +
-                    "<body>" +
-                    "<h1 align='center'>MAIN</h1>" +
-                    "<div align='center'>" +
-                    "<a href='catalog'>Каталог</a><br>" +
-                    "<a href='cart'>Корзина</a><br>" +
-                    "<a href='order'>Заявка</a><br>" +
-                    "<a href='product'>Товар</a><br>" +
-                    "</div>" +
-                    "</body>" +
-                    "</html>");
-        }
+        request.getRequestDispatcher("/").forward(request, response);
     }
 }

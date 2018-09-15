@@ -24,24 +24,6 @@ public class Cart extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter writer = response.getWriter()) {
-            writer.write("<!DOCTYPE html>" +
-                    "<html>" +
-                    "<head>" +
-                    "<meta charset=\"UTF-8\">" +
-                    "<title>Cart</title>" +
-                    "</head>" +
-                    "<body>" +
-                    "<div align='center'>" +
-                    "<h1 align='center'>CART</h1>" +
-                    "<a href='catalog'>Каталог</a><br>" +
-                    "<a href='main'>Главная</a><br>" +
-                    "<a href='order'>Заявка</a><br>" +
-                    "<a href='product'>Товар</a><br>" +
-                    "</div>" +
-                    "</body>" +
-                    "</html>");
-        }
+        request.getRequestDispatcher("WEB-INF/views/cart.jsp").forward(request, response);
     }
 }
