@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.ustionv.enterprise</groupId>
-    <artifactId>example</artifactId>
+    <groupId>ru.ustinov</groupId>
+    <artifactId>enterprise</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
 
-    <name>example Maven Webapp</name>
+    <name>enterprise Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -26,6 +26,12 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <developers>
         <developer>
@@ -34,7 +40,7 @@
         </developer>
     </developers>
     <build>
-        <finalName>example</finalName>
+        <finalName>enterprise</finalName>
         <plugins>
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
