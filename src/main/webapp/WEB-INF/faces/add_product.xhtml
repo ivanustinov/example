@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <ui:composition template="/WEB-INF/templates/templLayout.xhtml">
+        <ui:param name="title" value="Storage"/>
+        <ui:define name="content">
+            <h:form>
+                <p:growl id="msgs" showDetail="true"/>
+                <p:panel header="Add bus to the Storage" style="margin-bottom:10px;">
+                    <h:panelGrid columns="11" cellpadding="5">
+                        <p:selectOneMenu id="country" value="#{busController.country}" style="width:100px"
+                                         required="true" requieredMessage="Select Country">
+                            <p:ajax listener="#{busController.onCountryChange}" update="manufacturer"/>
+                            <f:selectItem itemLabel="Select Country" noSelectionOption="true"/>
+                            <f:selectItems value="#{busController.countries}"/>
+                        </p:selectOneMenu>
+                        <p:selectOneMenu id="manufacturer" value="#{busController.manufacturer}" style="width:120px"
+                                         required="true" requieredMessage="Select Manufacturer">
+                            <f:selectItem itemLabel="Select Manufacter" noSelectionOption="true"/>
+                            <f:selectItems value="#{busController.manufacturers}"/>
+                        </p:selectOneMenu>
+                        <p:selectOneMenu id="seazon" value="#{busController.seazon}" style="width:100px"
+                                         required="true" requieredMessage="Select Seazon">
+                            <f:selectItem itemLabel="Select Seazon" noSelectionOption="true"/>
+                            <f:selectItems value="#{busController.seazons}"/>
+                        </p:selectOneMenu>
+                        <p:inputText id="model" value="#{busController.model}" required="true"
+                                     requiredMessage="Input Model" placeholder="model" style="width:100px"/>
+                        <p:selectOneMenu id="width" value="#{busController.width}" required="true"
+                                         requieredMessage="Select width" style="width: 70px">
+                            <f:selectItem itemLabel="width mm" noSelectionOption="true"/>
+                            <f:selectItems value="#{busController.widths}"/>
+                        </p:selectOneMenu>
+                        <span class="ui-inputgroup-addon">/</span>
+                        <p:spinner id="height" value="#{busController.profile_height}" size="1" min="10" max="85"
+                                   suffix=" %"/>
+                        <p:selectOneMenu id="radius" value="#{busController.radius}" required="true"
+                                         requieredMessage="Select Radius" style="width:100px">
+                            <f:selectItem itemLabel="Select Radius" noSelectionOption="true"/>
+                            <f:selectItems value="#{busController.radiuses}"/>
+                        </p:selectOneMenu>
+                        <p:inputText id="data" value="#{busController.data}" placeholder="data"
+                                     style="width: 40px"/>
+                        <p:spinner id="price" value="#{busController.price}" size="3" stepFactor="100" min="0" max="6000"
+                                       placeholder="price .0" required="true" requieredMessage="Input Price">
+                        </p:spinner>
+                        <span class="ui-inputgroup-addon" style="font-size: 16px">₽</span>
+                    </h:panelGrid>
+                    <p:separator/>
+                    <p:commandButton value="Create" update="msgs" actionListener="#{busController.displayLocation}"
+                                     icon="ui-icon-check"/>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</f:view>
+</html>

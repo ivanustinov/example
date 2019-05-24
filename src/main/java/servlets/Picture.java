@@ -10,13 +10,13 @@ import java.io.IOException;
 /**
  * @author Ivan Ustinov(ivanustinov1985@yandex.ru)
  * @version 1.0
- * @since 10.09.2018
+ * @since 20.09.2018
  */
-@WebServlet(name = "Main", urlPatterns = {"/main"})
-public class Main extends HttpServlet {
+@WebServlet(name = "Picture", urlPatterns = "/picture")
+public class Picture extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/").forward(request, response);
+        String picture = request.getParameter("picture");
+        request.getRequestDispatcher(picture).forward(request, response);
     }
-
 }

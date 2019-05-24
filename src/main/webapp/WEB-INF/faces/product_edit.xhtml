@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<f:metadata>
+    <f:viewParam name="id" value="#{busEditController.id}"/>
+    <f:viewAction action="#{busEditController.init}"/>
+</f:metadata>
+<f:view>
+    <ui:composition template="/WEB-INF/templates/templLayout.xhtml">
+        <ui:param name="title" value="Storage"/>
+        <ui:define name="content">
+            <h:form>
+                <p:growl id="msgs" showDetail="true"/>
+                <p:panel header="Edit #{busEditController.bus}" style="margin-bottom:10px;">
+                    <h:panelGrid columns="10" cellpadding="5">
+                        <p:selectOneMenu id="manufacturer" value="#{busEditController.bus.manufacturer}"
+                                         style="width:120px">
+                            <f:selectItems value="#{busEditController.manufacturers}"/>
+                        </p:selectOneMenu>
+                        <p:selectOneMenu id="seazon" value="#{busEditController.bus.seazon}" style="width:100px"
+                                         required="true" requieredMessage="Select Seazon">
+                            <f:selectItems value="#{busController.seazons}"/>
+                        </p:selectOneMenu>
+                        <p:inputText id="model" value="#{busEditController.bus.model}" required="true"
+                                     requiredMessage="Input Model" placeholder="#{busEditController.bus.model}"
+                                     style="width:100px"/>
+                        <p:selectOneMenu id="width" value="#{busEditController.bus.width}" required="true"
+                                         requieredMessage="Select width" style="width: 70px">
+                            <f:selectItem itemLabel="#{busEditController.bus.width}" noSelectionOption="true"/>
+                            <f:selectItems value="#{busController.widths}"/>
+                        </p:selectOneMenu>
+                        <span class="ui-inputgroup-addon">/</span>
+                        <p:spinner id="height" size="1" value="#{busEditController.bus.profile_height}" min="10"
+                                   max="85"
+                                   suffix=" %"/>
+                        <p:selectOneMenu id="radius" value="#{busEditController.bus.radius}" required="true"
+                                         requieredMessage="Select Radius" style="width:100px">
+                            <f:selectItem itemLabel="#{busEditController.bus.radius}" noSelectionOption="true"/>
+                            <f:selectItems value="#{busController.radiuses}"/>
+                        </p:selectOneMenu>
+                        <p:inputText id="data" value="#{busEditController.bus.data}" placeholder="data"
+                                     style="width: 40px"/>
+                        <p:inputNumber id="price" value="#{busEditController.bus.price}" size="5" decimalPlaces="2"
+                                       placeholder="price .00" required="true" requieredMessage="Input Price">
+                        </p:inputNumber>
+                        <span class="ui-inputgroup-addon" style="font-size: 16px">₽</span>
+                    </h:panelGrid>
+                    <p:separator/>
+                    <p:commandButton value="Save" update="msgs" actionListener="#{busEditController.save}"
+                                     icon="ui-icon-check"/>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</f:view>
+</html>

@@ -1,0 +1,26 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+    <url-mapping>
+        <pattern value="/admin"/>
+        <view-id value="/WEB-INF/faces/admin.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/add"/>
+        <view-id value="/WEB-INF/faces/add_product.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/storage"/>
+        <view-id value="/WEB-INF/faces/bus_storage.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/edit"/>
+        <view-id value="/WEB-INF/faces/product_edit.xhtml"/>
+    </url-mapping>
+    <url-mapping>
+        <pattern value="/view-scope"/>
+        <view-id value="/WEB-INF/faces/experiment_bean.xhtml"/>
+    </url-mapping>
+
+</pretty-config>
